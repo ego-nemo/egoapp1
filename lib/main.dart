@@ -1,9 +1,11 @@
 import 'package:egoapp1/firebase_options.dart';
 import 'package:egoapp1/signup_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'authentication.dart';
+import 'auth/authentication.dart';
+import 'src/screen/chat_page.dart';
 
 const Color kAccentColor = Color.fromARGB(255, 141, 100, 254);
 const Color kBackgroundColor = Color(0xFF19283D);
@@ -29,14 +31,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: kBackgroundColor,
         colorScheme: ColorScheme.fromSwatch().copyWith(secondary: kAccentColor),
       ),
-      home: WelcomePage(),
+      home: const ChatPage(),
     );
   }
 }
 
-class WelcomePage extends StatelessWidget {
+class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -149,7 +152,7 @@ class _HeaderTitle extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          'Welcome',
+          'Buddy',
           style: Theme.of(context).textTheme.headline4!.copyWith(
                 color: kTextColorPrimary,
                 fontWeight: FontWeight.w500,
@@ -306,15 +309,19 @@ class _SignInForm extends StatelessWidget {
               ),
             ),
             onPressed: () async {
-              final result = await
-              Authentication.instance.signInWithEmailAndPassword(
+              final result =
+                  await Authentication.instance.signInWithEmailAndPassword(
                 emailController.text,
-                passWordController.text,);
-
-                // ログイン成功なら次の画面へ遷移
-                if(result){
-                  
-                }
+                passWordController.text,
+                codeSent: (String verificationId, int? resendToken) {},
+                codeAutoRetrievalTimeout: (String verificationId) {},
+                verificationCompleted: (PhoneAuthCredential credential) {},
+                verificationFailed: (FirebaseAuthException e) {},
+              );
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ChatPage()));
+              // ログイン成功なら次の画面へ遷移
+              if (result) {}
             },
             child: Text(
               'Sign in',

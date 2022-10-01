@@ -1,4 +1,4 @@
-import 'package:egoapp1/authentication.dart';
+import 'package:egoapp1/auth/authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +19,7 @@ class _SignUpForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loginEmail = TextEditingController(text: '');
+    final loginPhone = TextEditingController(text: '');
     final loginPassword = TextEditingController(text: '');
     final userNameText = TextEditingController(text: '');
 
@@ -38,6 +39,13 @@ class _SignUpForm extends StatelessWidget {
             labelText: 'Email',
             hintText: 'your email address goes here',
             obscureText: false,
+          ),
+          const SizedBox(height: 48),
+          CustomTextField(
+            controller: loginPhone,
+            labelText: 'Phone',
+            hintText: 'your Phone goes here',
+            obscureText: true,
           ),
           const SizedBox(height: 48),
           CustomTextField(

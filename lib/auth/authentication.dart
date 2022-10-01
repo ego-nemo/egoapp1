@@ -35,7 +35,13 @@ class Authentication {
     }
   }
 
-  Future<bool> signInWithEmailAndPassword(String email, String password) async {
+  Future<bool> signInWithEmailAndPassword(String email, String password,
+      {required Null Function(PhoneAuthCredential credential)
+          verificationCompleted,
+      required Null Function(FirebaseAuthException e) verificationFailed,
+      required Null Function(String verificationId, int? resendToken) codeSent,
+      required Null Function(String verificationId)
+          codeAutoRetrievalTimeout}) async {
     try {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
