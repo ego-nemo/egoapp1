@@ -1,24 +1,3 @@
-import 'package:egoapp1/src/screen/chat_page.dart';
-import 'package:egoapp1/src/screen/account_page.dart';
-import 'package:egoapp1/src/screen/call_page.dart';
-import 'package:egoapp1/src/screen/home_page.dart';
-import 'package:flutter/material.dart';
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyStatefulWidget(),
-    );
-  }
-}
-
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);
 
@@ -59,3 +38,4 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ));
   }
 }
+

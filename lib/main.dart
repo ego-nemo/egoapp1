@@ -1,11 +1,14 @@
 import 'package:egoapp1/firebase_options.dart';
 import 'package:egoapp1/signup_page.dart';
+import 'package:egoapp1/src/screen/account_page.dart';
+import 'package:egoapp1/src/screen/call_page.dart';
+import 'package:egoapp1/src/screen/chat_page.dart';
+import 'package:egoapp1/src/screen/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'auth/authentication.dart';
-import 'src/screen/chat_page.dart';
 
 const Color kAccentColor = Color.fromARGB(255, 141, 100, 254);
 const Color kBackgroundColor = Color(0xFF19283D);
@@ -399,3 +402,4 @@ class _Footer extends StatelessWidget {
     );
   }
 }
+
