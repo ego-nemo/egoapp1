@@ -6,7 +6,7 @@ import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 // ランダムなIDを採番してくれるパッケージ
 import 'package:uuid/uuid.dart';
 
-import '../../main.dart';
+import '../../MyApp.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
@@ -98,13 +98,15 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.black26,
         title: const Text('chat'),
       ),
       body: Chat(
         theme: const DefaultChatTheme(
           backgroundColor: kBackgroundColor,
           // メッセージ入力欄の色
-          inputBackgroundColor: Colors.blue,
+          inputBackgroundColor: Colors.black26,
           // 送信ボタン
           sendButtonIcon: Icon(Icons.send),
           sendingIcon: Icon(Icons.update_outlined),

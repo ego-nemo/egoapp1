@@ -2,7 +2,9 @@ import 'package:egoapp1/auth/authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'main.dart';
+import '../MyApp.dart';
+import '../main.dart';
+import 'signin_page.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});

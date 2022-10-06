@@ -1,17 +1,18 @@
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+import 'package:egoapp1/src/screen/callingInterface/audioCallimage/call_page.dart';
+import 'package:egoapp1/src/screen/chat_page.dart';
+import 'package:egoapp1/src/screen/etc/etc_page.dart';
+import 'package:egoapp1/src/screen/home/home_page.dart';
+import 'package:flutter/material.dart';
+
+class BasePage extends StatefulWidget {
+  const BasePage({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  State<BasePage> createState() => _BasePageState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  static const _screens = [
-    HomeScreen(),
-    ChatPage(),
-    CallPageScreen(),
-    AccountScreen()
-  ];
+class _BasePageState extends State<BasePage> {
+  static const _screens = [Home(), CallPage(), ChatPage(), EtcPage()];
 
   int _selectedIndex = 0;
 
@@ -26,16 +27,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return Scaffold(
         body: _screens[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black26,
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Call'),
             BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'account'),
+            BottomNavigationBarItem(icon: Icon(Icons.dehaze), label: 'etc'),
           ],
           type: BottomNavigationBarType.fixed,
         ));
   }
 }
-
