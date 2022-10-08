@@ -1,7 +1,7 @@
 import 'package:egoapp1/src/screen/callingInterface/audioCallimage/call_page.dart';
 import 'package:egoapp1/src/screen/chat_page.dart';
 import 'package:egoapp1/src/screen/etc/etc_page.dart';
-import 'package:egoapp1/src/screen/home/home_page.dart';
+//import 'package:egoapp1/src/screen/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class BasePage extends StatefulWidget {
@@ -12,7 +12,10 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
-  static const _screens = [Home(), CallPage(), ChatPage(), EtcPage()];
+  static const _screens = [
+    //Home(),
+    CallPage(), ChatPage(), EtcPage()
+  ];
 
   int _selectedIndex = 0;
 
@@ -31,7 +34,7 @@ class _BasePageState extends State<BasePage> {
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
           items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            //BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Call'),
             BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
             BottomNavigationBarItem(icon: Icon(Icons.dehaze), label: 'etc'),
